@@ -7,7 +7,7 @@ from doubanMovie.items import DoubanmovieItem
 class DoubanmovieSpider(scrapy.Spider):
     name = 'doubanmovie'
     allowed_domains = ['movie.douban.com']
-    start_urls = ['https://movie.douban.com/people/85965842/collect']
+    start_urls = ['https://movie.douban.com/']
 
     custom_settings = {
         "DEFAULT_REQUEST_HEADERS": {
@@ -18,11 +18,11 @@ class DoubanmovieSpider(scrapy.Spider):
     def parse(self, response):
         # filename = "indexdouban.html"
         # open(filename, "w").write(response)
-        print(response.body.decode('utf-8'))
+        # print(response.body.decode('utf-8'))
         items = []
-        for div in response.xpath("//div[@class='item']"):
+        for div in response.xpath("//a[@class='item']"):
             item = DoubanmovieItem()
-            title = div.xpath("//em/text()").extract()
+            title = div.xpath("//@href").extract()
 
             item["title"] = title
 
