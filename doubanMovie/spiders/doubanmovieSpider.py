@@ -24,9 +24,9 @@ class DoubanmovieSpider(scrapy.Spider):
             yield scrapy.Request(url, callback=self.parse_detail)
             # scrapy.Request()
             item["title"] = title
-            # item["url"] = url
-            # print("123:" + response.url)
-            # items.append(item)
+            item["url"] = url
+            print("123:" + response.url)
+            items.append(item)
         next_page_href = response.xpath("//link[@rel='next']/@href").extract()[0]
         print(response.urljoin(next_page_href))
         next_page_url = response.urljoin(next_page_href)
