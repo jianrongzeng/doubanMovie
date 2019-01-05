@@ -22,7 +22,6 @@ class DoubanmovieSpider(scrapy.Spider):
             title = div.xpath(".//em/text()").extract()[0]
             url = div.xpath(".//li[@class='title']//a/@href").extract()[0]
             yield scrapy.Request(url, callback=self.parse_detail)
-            # scrapy.Request()
             item["title"] = title
             item["url"] = url
             print("123:" + response.url)
