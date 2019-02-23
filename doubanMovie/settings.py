@@ -19,7 +19,7 @@ NEWSPIDER_MODULE = 'doubanMovie.spiders'
 #USER_AGENT = 'doubanMovie (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -34,7 +34,7 @@ ROBOTSTXT_OBEY = True
 
 # Disable cookies (enabled by default)
 #COOKIES_ENABLED = False
-
+ROBOTSTXT_OBEY
 # Disable Telnet Console (enabled by default)
 #TELNETCONSOLE_ENABLED = False
 
